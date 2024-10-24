@@ -11,6 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { IProduct } from '../../interfaces';
 import { CategoriesService } from "../../services/categories.service";
 import { ActivatedRoute } from '@angular/router';
+import { RoleGuardDirective } from '../../components/directive/role-guard.directive';
 
 @Component({
   selector: 'app-products',
@@ -20,7 +21,8 @@ import { ActivatedRoute } from '@angular/router';
     PaginationComponent,
     ModalComponent,
     LoaderComponent,
-    ProductsFormComponent],
+    ProductsFormComponent,
+    RoleGuardDirective],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
@@ -32,11 +34,11 @@ export class ProductsComponent {
   @ViewChild('addProductsModal') public addProductsModal: any;
   public fb: FormBuilder = inject(FormBuilder);
   productForm = this.fb.group({
-    id: [''],
-    name: ['', Validators.required],
-    description: ['', Validators.required],
-    price: ['', Validators.required],
-    stock: ['', Validators.required],
+    id: [""],
+    name: ["", Validators.required],
+    description: ["", Validators.required],
+    price: ["", Validators.required],
+    stock: ["", Validators.required],
     category: ["", Validators.required]
   })
 

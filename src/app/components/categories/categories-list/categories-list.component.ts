@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { ICategory } from '../../../interfaces';
+import { RoleGuardDirective } from '../../directive/role-guard.directive';
 
 
 @Component({
   selector: 'app-categories-list',
   standalone: true,
-  imports: [],
+  imports: [RoleGuardDirective],
   templateUrl: './categories-list.component.html',
   styleUrl: './categories-list.component.scss'
 })

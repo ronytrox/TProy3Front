@@ -9,6 +9,7 @@ import { ModalService } from '../../services/modal.service';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ICategory } from '../../interfaces';
+import { RoleGuardDirective } from '../../components/directive/role-guard.directive';
 
 @Component({
   selector: 'app-categories',
@@ -18,7 +19,8 @@ import { ICategory } from '../../interfaces';
     PaginationComponent,
     ModalComponent,
     LoaderComponent,
-    CategoriesFormComponent
+    CategoriesFormComponent,
+    RoleGuardDirective
 ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
@@ -31,9 +33,9 @@ export class CategoriesComponent {
   @ViewChild('addCategoriesModal') public addCategoriesModal: any;
   public fb: FormBuilder = inject(FormBuilder);
   categoryForm = this.fb.group({
-    id: [''],
-    name: ['', Validators.required],
-    description: ['', Validators.required]
+    id: [""],
+    name: ["", Validators.required],
+    description: ["", Validators.required]
   })
 
   constructor() {
@@ -42,7 +44,7 @@ export class CategoriesComponent {
   }
 
   saveCategory(category: ICategory) {
-    this.authService.isSuperAdmin() ?  this.categoriesService.save(category): null;
+    this.categoriesService.save(category);
     this.modalService.closeAll();
   }
 
