@@ -9,7 +9,8 @@
       <th scope="col">Description</th>
       <th scope="col">Price</th>
       <th scope="col">Stock</th>
-      <th scope="col">Actions</th>
+      <th scope="col">Category</th>
+      <th scope="col" appRoleGuard [superAdminOnly]="true">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +21,8 @@
         <td>{{item.description}}</td>
         <td>{{item.price}}</td>
         <td>{{item.stock}}</td>
-        <td>
+        <td>{{item.category.name}}</td>
+        <td appRoleGuard [superAdminOnly]="true">
           <button (click)="callModalAction.emit(item);" class="btn btn-warning me-2" type="button"><i class="fas fa-pen"></i></button>
           <button (click)="callDeleteAction.emit(item)" class="btn btn-danger" type="button"><i class="fas fa-trash"></i></button>
         </td>
@@ -29,7 +31,7 @@
       <tr>
         <td colspan="4">
           <div class="d-flex justify-content-center align-items-center w-100">
-            <p class="mb-0">There are not products</p>
+            <p class="mb-0">There are no products</p>
           </div>
         </td>
       </tr>

@@ -17,7 +17,9 @@ import { ICategory } from '../../interfaces';
     CategoriesListComponent,
     PaginationComponent,
     ModalComponent,
-    LoaderComponent],
+    LoaderComponent,
+    CategoriesFormComponent
+],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
 })

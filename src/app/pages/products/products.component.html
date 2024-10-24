@@ -25,13 +25,14 @@
   } @loading (minimum 1.5s) {
     <app-loader/>
   }
-  <!--
+
   <ng-template #addProductsModal>
     <app-modal
       [hideFooter]="true"
     >
       <div>
         <app-products-form
+          [categories]="categoryService.categories$()"
           [productForm]="productForm"
           (callSaveMethod)="saveProduct($event)"
           (callUpdateMethod)="updateProduct($event)"
@@ -39,5 +40,5 @@
       </div>
     </app-modal>
   </ng-template>
-  -->
+
   

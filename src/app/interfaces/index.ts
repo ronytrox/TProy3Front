@@ -71,7 +71,10 @@ export interface IProduct{
   description?: string;
   price?: number;
   stock?: number;
-  categoryId?: number;
+  category: {
+    id?: number;
+    name?: string;
+  };
 }
 
 export interface ICategory{
